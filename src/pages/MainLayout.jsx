@@ -1,27 +1,31 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import { useState, useEffect } from 'react';
+import SideBarMenu from './SideBar.jsx';
 
 function MainLayout() {
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+    const formattedTime = currentTime.toLocaleTimeString();
+
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <div className="row">
-                    <div className="col-4">
-                        <Navbar.Brand href="#home">INVENTORY</Navbar.Brand>
-                    </div>
-                    <div className="col-8">
-                        <InputGroup className="mb-3">
-                            <Form.Control aria-label="Amount (to the nearest dollar)" />
-                        </InputGroup>
-                    </div>
-                </div>
-            </Container>
-        </Navbar>
+        <Container fluid>
+            <Navbar expand="lg" className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Brand href="#">Navbar</Navbar.Brand>
+                    <Navbar.Text className="ms-auto">{formattedTime}</Navbar.Text>
+                </Container>
+            </Navbar>
+            <SideBarMenu />
+        </Container>
     );
 }
 
