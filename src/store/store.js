@@ -1,5 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { products, orders } from '../../data/data';
 
-export default configureStore({
-    reducer: {},
-});
+const initialState = {
+    products,
+    orders,
+};
+
+const rootReducer = (state = initialState, action) => {
+    return state;
+};
+
+export default rootReducer;

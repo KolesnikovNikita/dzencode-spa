@@ -1,14 +1,16 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { OrderItem } from '../components/OrderItem';
+import { useSelector } from 'react-redux';
 
 function OrdersList() {
+    const orders = useSelector((state) => state.orders);
+
     return (
         <ListGroup>
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+            {orders.map((order) => {
+                return <OrderItem key={order.id} productProps={order} />;
+            })}
         </ListGroup>
     );
 }

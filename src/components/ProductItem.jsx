@@ -1,12 +1,12 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function ProductsList() {
+export const ProductItem = (props) => {
+    console.log(props);
     return (
-        <ListGroup>
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-        </ListGroup>
+        <ListGroup.Item key={props.productProps.id}>
+            <p>id: {props.productProps.id}</p>
+            <b>name:{props.productProps.title}</b>
+        </ListGroup.Item>
     );
-}
-
-export default ProductsList;
+};
