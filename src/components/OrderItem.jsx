@@ -1,12 +1,11 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export const OrderItem = (props) => {
-    console.log(props);
+export const OrderItem = ({ orderProps, onClick }) => {
     return (
-        <ListGroup.Item>
-            <p>id: {props.productProps.id}</p>
-            <b>name:{props.productProps.title}</b>
+        <ListGroup.Item key={orderProps.id} onClick={onClick}>
+            <p>id: {orderProps.id}</p>
+            <b>name:{orderProps.title}</b>
         </ListGroup.Item>
     );
 };
