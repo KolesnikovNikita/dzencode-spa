@@ -1,4 +1,5 @@
 import ListGroup from 'react-bootstrap/ListGroup';
+import { OrderProduct } from '../components/OrderProduct.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { OrderItem } from '../components/OrderItem';
 import { useSelector } from 'react-redux';
@@ -32,13 +33,10 @@ const OrdersList = () => {
                     })}
                 </ListGroup>
             </Col>
-            <Col>
-                {selectProduct && (
-                    <ul>
-                        <li>Name: {selectProduct.id}</li>
-                    </ul>
-                )}
-            </Col>
+            {selectProduct &&
+                selectProduct.map((product) => {
+                    return <OrderProduct productProps={product} key={product.id} />;
+                })}
         </Row>
     );
 };

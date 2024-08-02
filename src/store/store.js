@@ -5,7 +5,7 @@ const initialState = {
     orders,
 };
 
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState) => {
     return state;
 };
 
