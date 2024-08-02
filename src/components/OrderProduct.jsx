@@ -9,6 +9,7 @@ export const OrderProduct = ({ productProps }) => {
                 <p>id: {productProps.id}</p>
                 <b>name:{productProps.title}</b>
                 <p>{productProps.type}</p>
+                <button>Delete</button>
             </ListGroup.Item>
         </Col>
     );

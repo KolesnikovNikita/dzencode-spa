@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import MainLayout from './pages/MainLayout.jsx';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './store/store.js';
+import App from './App.jsx';
 
 const store = configureStore({
     reducer: rootReducer,
@@ -12,7 +13,7 @@ const store = configureStore({
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Provider store={store}>
-            <MainLayout />
+            <App />
         </Provider>
     </React.StrictMode>
 );

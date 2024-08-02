@@ -4,8 +4,10 @@ import Navbar from 'react-bootstrap/Navbar';
 import { useState, useEffect } from 'react';
 import SideBarMenu from './SideBar.jsx';
 import OrdersList from './OrdersList.jsx';
+import ProductsList from './ProductsList.jsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { NavigationMenu } from './NavigationMenu.jsx';
 
 function MainLayout() {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -29,6 +31,7 @@ function MainLayout() {
                     </Container>
                 </Navbar>
             </Row>
+
             <Row>
                 <Col lg="3">
                     <SideBarMenu />
@@ -36,6 +39,9 @@ function MainLayout() {
 
                 <Col>
                     <OrdersList />
+                </Col>
+                <Col>
+                    <ProductsList />
                 </Col>
             </Row>
         </Container>

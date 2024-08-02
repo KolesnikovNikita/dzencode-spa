@@ -6,10 +6,13 @@ import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 const OrdersList = () => {
     const orders = useSelector((state) => state.orders);
     const products = useSelector((state) => state.products);
+    const [show, setShow] = useState(false);
 
     const [selectProduct, setSelectProduct] = useState(null);
 
@@ -18,8 +21,29 @@ const OrdersList = () => {
         setSelectProduct(foundProduct);
     };
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <Row>
+            <Button variant="primary" onClick={handleShow}>
+                Launch demo modal
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        Save Changes
+                    </Button>
+                </Modal.Footer>
+            </Modal>
             <Col>
                 <ListGroup>
                     {orders.map((order) => {
