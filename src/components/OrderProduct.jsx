@@ -1,6 +1,6 @@
 import ListGroup from 'react-bootstrap/ListGroup';
-import Col from 'react-bootstrap/Col';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Col from 'react-bootstrap/Col';
 
 export const OrderProduct = ({ productProps }) => {
     return (
@@ -9,7 +9,6 @@ export const OrderProduct = ({ productProps }) => {
                 <p>id: {productProps.id}</p>
                 <b>name:{productProps.title}</b>
                 <p>{productProps.type}</p>
-                <button>Delete</button>
             </ListGroup.Item>
         </Col>
     );

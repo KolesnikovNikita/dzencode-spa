@@ -2,12 +2,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { useState, useEffect } from 'react';
-import SideBarMenu from './SideBar.jsx';
-import OrdersList from './OrdersList.jsx';
-import ProductsList from './ProductsList.jsx';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import { NavigationMenu } from './NavigationMenu.jsx';
+import { Outlet } from 'react-router-dom';
 
 function MainLayout() {
     const [currentTime, setCurrentTime] = useState(new Date());
@@ -33,15 +32,17 @@ function MainLayout() {
             </Row>
 
             <Row>
-                <Col lg="3">
-                    <SideBarMenu />
-                </Col>
+                <Col md="3">
+                    <Image
+                        className="w-50"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw_Vx9mSNmHZ4s-6rTQz2LZiIgJo24tnh33g&s"
+                        roundedCircle
+                    />
 
-                <Col>
-                    <OrdersList />
+                    <NavigationMenu />
                 </Col>
-                <Col>
-                    <ProductsList />
+                <Col md="9">
+                    <Outlet />
                 </Col>
             </Row>
         </Container>

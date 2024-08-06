@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { ProductItem } from '../components/ProductItem';
 
 function ProductsList() {
-    const products = useSelector((state) => state.products);
+    const products = useSelector((state) => state.ProductListReducer);
 
     return (
         <ListGroup>

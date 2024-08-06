@@ -1,12 +1,10 @@
-import { products, orders } from '../../data/data';
+import { combineReducers } from 'redux';
+import { orderReducer, productReducer, ProductListReducer } from './reducers';
 
-const initialState = {
-    products,
-    orders,
-};
-
-const rootReducer = (state = initialState) => {
-    return state;
-};
+const rootReducer = combineReducers({
+    orderReducer,
+    productReducer,
+    ProductListReducer,
+});
 
 export default rootReducer;
