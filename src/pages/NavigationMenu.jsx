@@ -1,6 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import OrdersList from './OrdersList';
-import ProductsList from './ProductsList';
+import { Link } from 'react-router-dom';
 
 export const NavigationMenu = () => {
     return (

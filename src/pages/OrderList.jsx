@@ -1,7 +1,7 @@
 import ListGroup from 'react-bootstrap/ListGroup';
 import { OrderProduct } from '../components/OrderProduct.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { OrderItem } from '../components/OrderItem';
+import { OrderItem } from '../components/OrderItem.jsx';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import Col from 'react-bootstrap/Col';
@@ -16,6 +16,7 @@ const OrdersList = () => {
         setCurrentOrder(id);
     };
     const foundProduct = productsList.filter((product) => product.order === currentOrder);
+
     return (
         <Row>
             <Col>
