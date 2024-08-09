@@ -2,18 +2,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { ProductItem } from '../components/ProductItem';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 function ProductsList() {
     const [selectedType, setSelectedType] = useState('all');
-    const [filteredProducts, setFilteredProducts] = useState([]);
     const products = useSelector((state) => state.ProductListReducer);
-
-    useEffect(() => {
-        const filteredProducts = products.filter((product) => product.type === selectedType);
-        setFilteredProducts(filteredProducts);
-    }, [selectedType, products]);
 
     const handleTypeChange = (event) => {
         setSelectedType(event.target.value);
@@ -21,7 +15,12 @@ function ProductsList() {
 
     return (
         <>
-            <Form.Select value={selectedType} onChange={handleTypeChange} aria-label="Product Type">
+            <Form.Select
+                className="mb-4 shadow"
+                value={selectedType}
+                onChange={handleTypeChange}
+                aria-label="Product Type"
+            >
                 <option defaultValue="all">All</option>
                 <option value="Monitors">Monitors</option>
                 <option value="PC">PC</option>

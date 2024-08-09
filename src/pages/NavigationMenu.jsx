@@ -1,19 +1,20 @@
 import { Link } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
 
 export const NavigationMenu = () => {
     return (
         <>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/orders">Orders</Link>
-                </li>
-                <li>
-                    <Link to="/products">Products</Link>
-                </li>
-            </ul>
+            <Nav className="flex-column flex-grow">
+                <Nav.Link as={Link} to="/" className="fw-bold text-dark">
+                    Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/orders" className="fw-bold text-dark">
+                    Orders
+                </Nav.Link>
+                <Nav.Link as={Link} to="/products" className="fw-bold text-dark">
+                    Products
+                </Nav.Link>
+            </Nav>
         </>
     );
 };

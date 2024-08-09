@@ -22,7 +22,14 @@ const OrdersList = () => {
             <Col>
                 <ListGroup>
                     {ordersList.map((order) => {
-                        return <OrderItem onClick={() => productHandler(order.id)} key={order.id} orderProps={order} />;
+                        return (
+                            <OrderItem
+                                onClick={() => productHandler(order.id)}
+                                key={order.id}
+                                products={foundProduct}
+                                orderProps={order}
+                            />
+                        );
                     })}
                 </ListGroup>
             </Col>
