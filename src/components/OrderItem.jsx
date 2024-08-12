@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Modal, ListGroup, Card, Row, Col } from 'react-bootstrap';
+import { Button, Modal, ListGroup, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteFromOrders } from '../store/actions';
 import { useSelector } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const OrderItem = ({ orderProps, onClick }) => {
     const [show, setShow] = useState(false);
@@ -27,7 +29,7 @@ export const OrderItem = ({ orderProps, onClick }) => {
     const dispatch = useDispatch();
 
     return (
-        <ListGroup.Item className="mb-4 shadow" key={orderProps.id} onClick={onClick}>
+        <ListGroup.Item className="mb-2 shadow" key={orderProps.id} onClick={onClick}>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Вы уверены,что хотите удалить этот приход?</Modal.Title>
@@ -48,29 +50,33 @@ export const OrderItem = ({ orderProps, onClick }) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-            <Card>
-                <Row className="align-items-center d-flex">
-                    <Col>
-                        <Card.Body>
-                            <Card.Title>{orderProps.title}</Card.Title>
-                        </Card.Body>
-                    </Col>
-                    <Col>
-                        <div>{productsOfOrder.length}</div>
-                        <div>Продуктов</div>
-                    </Col>
-                    <Col>{orderProps.date}</Col>
-                    <Col>
-                        <div>{amountDollarProductsPrice}$</div>
-                        <div>{amountNationalProductsPrice}грн.</div>
-                    </Col>
-                    <Col>
-                        <Button variant="primary" onClick={handleShow}>
-                            Delete
-                        </Button>
-                    </Col>
-                </Row>
-            </Card>
+
+            <Row className="align-items-center d-flex">
+                <Col>{orderProps.title}</Col>
+                <Col>
+                    <div>{productsOfOrder.length}</div>
+                    <div>Продуктов</div>
+                </Col>
+                <Col>{orderProps.date}</Col>
+                <Col>
+                    <div>{amountDollarProductsPrice}$</div>
+                    <div>{amountNationalProductsPrice}грн.</div>
+                </Col>
+                <Col>
+                    <button
+                        onClick={handleShow}
+                        style={{
+                            background: 'transparent',
+                            border: 'none',
+                            padding: 0,
+                            margin: 0,
+                            cursor: 'pointer',
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faTrash} size="1x" />
+                    </button>
+                </Col>
+            </Row>
         </ListGroup.Item>
     );
 };

@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 export const OrderProduct = ({ productProps }) => {
     return (
         <Col>
-            <ListGroup.Item>
+            <ListGroup.Item className="shadow mb-2">
                 <p>id: {productProps.id}</p>
                 <b>name:{productProps.title}</b>
                 <p>{productProps.type}</p>

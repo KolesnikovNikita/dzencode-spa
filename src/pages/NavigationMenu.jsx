@@ -4,7 +4,7 @@ import { Nav } from 'react-bootstrap';
 export const NavigationMenu = () => {
     return (
         <>
-            <Nav className="flex-column flex-grow">
+            <Nav className="flex-column">
                 <Nav.Link as={Link} to="/" className="fw-bold text-dark">
                     Home
                 </Nav.Link>

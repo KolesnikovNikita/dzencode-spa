@@ -19,24 +19,32 @@ const OrdersList = () => {
 
     return (
         <Row>
-            <Col>
-                <ListGroup>
-                    {ordersList.map((order) => {
-                        return (
-                            <OrderItem
-                                onClick={() => productHandler(order.id)}
-                                key={order.id}
-                                products={foundProduct}
-                                orderProps={order}
-                            />
-                        );
-                    })}
-                </ListGroup>
-            </Col>
-            {foundProduct &&
-                foundProduct.map((product) => {
-                    return <OrderProduct productProps={product} key={product.id} />;
-                })}
+            {ordersList.length > 0 && (
+                <Col>
+                    <ListGroup>
+                        {ordersList.map((order) => {
+                            return (
+                                <OrderItem
+                                    onClick={() => productHandler(order.id)}
+                                    key={order.id}
+                                    products={foundProduct}
+                                    orderProps={order}
+                                />
+                            );
+                        })}
+                    </ListGroup>
+                </Col>
+            )}
+
+            {foundProduct.length > 0 && (
+                <Col>
+                    <ListGroup>
+                        {foundProduct.map((product) => (
+                            <OrderProduct productProps={product} key={product.id} />
+                        ))}
+                    </ListGroup>
+                </Col>
+            )}
         </Row>
     );
 };

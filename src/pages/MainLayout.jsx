@@ -11,17 +11,17 @@ function MainLayout() {
         <Container fluid className="px-0">
             <TopMenu />
             <Row>
-                <Col style={{ height: '100vh' }} className="pt-5 d-flex flex-column align-items-center shadow" md={3}>
+                <Col style={{ height: '100vh' }} className="pt-5 d-flex flex-column align-items-center shadow" md={2}>
                     <Image
                         className="mb-4"
                         style={{ width: '100px', height: '100px' }}
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw_Vx9mSNmHZ4s-6rTQz2LZiIgJo24tnh33g&s"
+                        src="https://wpdaddy.com/wp-content/uploads/2020/11/thispersondoesnotexist.jpg"
                         roundedCircle
                     />
 
                     <NavigationMenu />
                 </Col>
-                <Col className="pt-2" md="9">
+                <Col className="pt-2 bg-light" md="10">
                     <Outlet />
                 </Col>
             </Row>

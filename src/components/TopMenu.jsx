@@ -25,9 +25,9 @@ export const TopMenu = () => {
 
     return (
         <Navbar className="shadow">
-            <Container>
-                <Row className="justify-content-between">
-                    <Col>
+            <Container className="justify-content-between">
+                <Row className="w-100 align-items-center justify-content-between">
+                    <Col md="4">
                         <Navbar.Brand>
                             <Image
                                 width="50"
@@ -36,7 +36,7 @@ export const TopMenu = () => {
                             <span>INVENTORY</span>
                         </Navbar.Brand>
                     </Col>
-                    <Col>
+                    <Col md="3">
                         <Row>
                             <Col>{`${weekday}`}</Col>
                         </Row>
